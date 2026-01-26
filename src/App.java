@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        CSVReader csvreader = new CSVReader();
-        csvreader.read("data.csv");
+        CSVReader reader = new CSVReader();
+
+        reader.displayRecords(reader.read("data.csv"));
     }
 }
