@@ -2,10 +2,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CSVReader {
 
     private String[] headers;
+
+    private HashMap <String, Integer> columnIndex = new HashMap<>();
 
    public CSVReader()
    {
@@ -21,11 +24,16 @@ public class CSVReader {
             //storing header initially
             headers = br.readLine().split(",");
 
+            for(int i = 0; i < headers.length; i++)
+            {
+                columnIndex.put(headers[i].trim(),i);
+            }
+
             //storing the rest of the records
             String line;
             while ((line = br.readLine()) != null)
             {
-                Record record = new Record(line.split(","));
+                Record record = new Record(line.split(","), columnIndex);
                 record_list.add(record);
             }
         } catch (IOException e)
@@ -50,6 +58,16 @@ public class CSVReader {
         {
             System.out.println(String.join(" | ", record.getValues()));
         }
+   }
+
+   public int lookup (String coloumnName)
+   {
+        return columnIndex.get(coloumnName);
+   }
+
+   public HashMap<String, Integer> getHashMap ()
+   {
+        return columnIndex;
    }
 
 }
