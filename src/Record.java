@@ -10,6 +10,12 @@ public class Record {
         this.values = values;
     }
 
+    public Record (Record r)
+    {
+        this.columnMap = r.columnMap;
+        this.values = r.values.clone();
+    }
+
     public String[] getValues()
     {
         return values;
