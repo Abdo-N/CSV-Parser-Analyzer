@@ -29,5 +29,10 @@ public class Record {
     public String toString() {
         return String.join(", ", values);
     }
+    
+     public HashMap<String, Integer> getHashMap ()
+   {
+        return columnMap;
+   }
 }
 

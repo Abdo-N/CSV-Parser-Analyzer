@@ -54,9 +54,4 @@ public class CSVReader {
         return columnIndex.get(coloumnName);
    }
 
-   /*public HashMap<String, Integer> getHashMap ()
-   {
-        return columnIndex;
-   } */
-
 }
