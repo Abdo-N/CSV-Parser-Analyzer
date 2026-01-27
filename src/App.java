@@ -2,25 +2,21 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-      CSVReader reader = new CSVReader();
-ArrayList<Record> records = reader.read("data.csv");
+        CSVReader reader = new CSVReader();
+        ArrayList<Record> records = reader.read("data.csv");
 
-Sorter sorter = new Sorter(records);
+        Stats stats = new Stats(records);
 
-// Test sorting by age (ascending)
-System.out.println("Sorted by age (ascending):");
-ArrayList<Record> sortedByAge = sorter.sort("age", true);
-Display display = new Display(reader.getHeaders(), sortedByAge);
-display.displayData();
+        System.out.println("Age statistics:");
+        System.out.println("Min: " + stats.getMin("age"));
+        System.out.println("Max: " + stats.getMax("age"));
+        System.out.println("Average: " + stats.getAvg("age"));
+        System.out.println("Median: " + stats.getMedian("age"));
 
-System.out.println("\nSorted by name (alphabetically):");
-ArrayList<Record> sortedByName = sorter.sort("name", true);
-display = new Display(reader.getHeaders(), sortedByName);
-display.displayData();
-
-System.out.println("\nSorted by rating (descending):");
-ArrayList<Record> sortedByRating = sorter.sort("rating", false);
-display = new Display(reader.getHeaders(), sortedByRating);
-display.displayData();
+        System.out.println("\nRating statistics:");
+        System.out.println("Min: " + stats.getMin("rating"));
+        System.out.println("Max: " + stats.getMax("rating"));
+        System.out.println("Average: " + stats.getAvg("rating"));
+        System.out.println("Median: " + stats.getMedian("rating"));
     }
 }
