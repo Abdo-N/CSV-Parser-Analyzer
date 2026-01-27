@@ -49,25 +49,14 @@ public class CSVReader {
     return headers;
    }
 
-   public void displayRecords(ArrayList<Record> records)
-   {
-        System.out.println(String.join(" | ", headers));
-        System.out.println();
-
-        for(Record record : records)
-        {
-            System.out.println(String.join(" | ", record.getValues()));
-        }
-   }
-
    public int lookup (String coloumnName)
    {
         return columnIndex.get(coloumnName);
    }
 
-   public HashMap<String, Integer> getHashMap ()
+   /*public HashMap<String, Integer> getHashMap ()
    {
         return columnIndex;
-   }
+   } */
 
 }
